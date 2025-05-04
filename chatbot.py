@@ -1,9 +1,9 @@
 from langchain.agents import Tool, AgentExecutor, ConversationalAgent
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
-from langchain.document_loaders import DirectoryLoader
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
+from langchain_community.document_loaders import DirectoryLoader
+from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_google_genai import ChatGoogleGenerativeAI
 from datetime import datetime, timedelta
@@ -194,8 +194,8 @@ class Chatbot:
 # Example usage
 def main():
     # Initializing the chatbot with a documents directory
-    chatbot = Chatbot("/Users/teksinghayer/Desktop/palm_tech_chatbot/pdf")
-    chatbot.initialize_document_qa("/Users/teksinghayer/Desktop/palm_tech_chatbot/pdf")
+    chatbot = Chatbot("/Users/teksinghayer/Desktop/Chatbot/pdf")
+    chatbot.initialize_document_qa("/Users/teksinghayer/Desktop/Chatbot/pdf")
     print("Chatbot initialized. Type 'quit' to exit.")
     
     while True:
