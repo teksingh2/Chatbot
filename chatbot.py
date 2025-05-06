@@ -24,7 +24,7 @@ class UserDataCollector:
     
     def validate_phone(self, phone: str) -> bool:
         try:
-            parsed_number = phonenumbers.parse(phone, "US")
+            parsed_number = phonenumbers.parse(phone, "NEP")
             return phonenumbers.is_valid_number(parsed_number)
         except:
             return False
@@ -191,21 +191,5 @@ class Chatbot:
             return f"I encountered an error: {str(e)}"
     def book_appointment(self, text: str) -> str:
         return "I can help you book an appointment. Please provide the date and time."
-# Example usage
-def main():
-    # Initializing the chatbot with a documents directory
-    chatbot = Chatbot("/Users/teksinghayer/Desktop/Chatbot/pdf")
-    chatbot.initialize_document_qa("/Users/teksinghayer/Desktop/Chatbot/pdf")
-    print("Chatbot initialized. Type 'quit' to exit.")
-    
-    while True:
-        user_input = input("You: ")
-        if user_input.lower() == 'quit':
-            break
-            
-        response = chatbot.process_message(user_input)
-        print(f"Bot: {response}")
 
-if __name__ == "__main__":
-    main()
     
