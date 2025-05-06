@@ -3,13 +3,13 @@ import os
 import sys
 import time
 
-# Try to import your Chatbot class
+# Try to import Chatbot class
 try:
-    # Adjust the path as needed to find your chatbot module
+    
     sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     from chatbot import Chatbot
 except ImportError:
-    # If import fails, define a wrapper class
+    # If import fails, 
     class Chatbot:
         def __init__(self, documents_dir):
             self.documents_dir = documents_dir
@@ -19,7 +19,7 @@ except ImportError:
         def initialize_document_qa(self, directory):
             print(f"Initializing document QA with directory: {directory}")
             self.initialized = True
-            # Simulate initialization delay
+            #delay
             time.sleep(2)
         
         def process_message(self, message):
@@ -74,7 +74,7 @@ def chat():
     except Exception as e:
         return jsonify({'status': 'error', 'message': str(e)})
 
-# Create templates directory and HTML template
+# Create templates directory and HTML file
 def create_templates():
     templates_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
     os.makedirs(templates_dir, exist_ok=True)
@@ -402,5 +402,4 @@ if __name__ == '__main__':
     
     # Run the Flask app
     print("Starting Flask web server for chatbot...")
-    print("Access the chatbot interface at http://localhost:5001")
     app.run(host='127.0.0.1', port=5000, debug=True)
